@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Cam Hovell">
+
+    <title>CJN Traffic Reporting</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+
+    <!-- Custom styles for this template -->
+    <link href="css/new-age.min.css" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">CJN Traffic Reporting</a>
+      </div>
+    </nav>
+
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-lg-7 my-auto">
+            <div class="header-content mx-auto">
+              <h1 class="mb-5">CJN Traffic Reporting is an application to help you avoid delays on the road.</h1>
+              <a href="#demo" class="btn btn-outline btn-xl js-scroll-trigger">Try Now!</a>
+            </div>
+          </div>
+          <div class="col-lg-5 my-auto">
+            <div class="device-container">
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="demo" id="demo">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2>Try it out!</h2>
+          <p class="text-muted">Check out what you can do with this app theme!</p>
+          <hr>
+        </div>
+        <div class="container">
+          <section id="map" style="height: 500px">
+            
+          </section>
+        </div>
+      </div>
+    </section>
+
+
+    <footer>
+      <div class="container">
+        <p>&copy; 2017 CJN Traffic Reporting. All Rights Reserved.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="#">Privacy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">Terms</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      
+        var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: new google.maps.LatLng(-41.271098, 174.835739),
+          mapTypeId: 'roadmap'
+        });
+
+        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+
+        var icons = {
+
+
+          checkpoint: {
+            icon: iconBase + 'police.png'
+          },
+          speedcam: {
+            icon: iconBase + 'camera.png'
+          },
+          roadworks: {
+            icon: iconBase + 'caution.png'
+          }
+
+        };
+
+        var features = [
+          {
+            position: new google.maps.LatLng(-41.2875495, 174.77834919999998),
+            type: 'checkpoint'
+          }, {
+            position: new google.maps.LatLng(-41.244589, 174.814094),
+            type: 'speedcam'
+          }, {
+            position: new google.maps.LatLng(-41.330086, 174.811939),
+            type: 'checkpoint'
+          }, {
+            position: new google.maps.LatLng(-41.308855, 174.778467),
+            type: 'roadworks'
+          }, {
+            position: new google.maps.LatLng(-41.306423, 174.824291),
+            type: 'roadworks'
+          }, {
+            position: new google.maps.LatLng(-41.332364, 174.786726),
+            type: 'speedcam'
+          }, {
+            position: new google.maps.LatLng(-41.222062, 174.867061),
+            type: 'checkpoint'
+          }, {
+            position: new google.maps.LatLng(-41.287262, 174.901466),
+            type: 'speedcam'
+          }, {
+            position: new google.maps.LatLng(-41.247737, 174.924164),
+            type: 'roadworks'
+          }, {
+            position: new google.maps.LatLng(-41.251268, 174.773239),
+            type: 'roadworks'
+          }, {
+            position: new google.maps.LatLng(-41.234446, 174.837112),
+            type: 'speedcam'
+          }
+        ];
+
+        // Create markers.
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+        });
+      }
+
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBcGtw8cDU500mUB991917RZK7pmsR9l8A&callback=initMap"
+    async defer></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/new-age.min.js"></script>
+
+  </body>
+
+</html>
